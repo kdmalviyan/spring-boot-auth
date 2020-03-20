@@ -8,3 +8,4 @@ How to use it:
     "userName": "admin",
     "password": "Password1"
   }
+Content-type should be application/json
