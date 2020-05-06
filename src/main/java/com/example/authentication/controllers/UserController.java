@@ -38,9 +38,16 @@ public class UserController {
 		return ResponseEntity.ok(result);
 	}
 
-	@Secured({ "ROLE_ADMIN", "ROLE_USER" })
+	@Secured({ "ROLE_ADMIN" })
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteUser(@PathVariable("id") Long id) {
+		Long result = userService.delete(id);
+		return ResponseEntity.ok(result);
+	}
+	
+	@Secured({ "ROLE_ADMIN", "ROLE_USER" })
+	@GetMapping("/{id}")
+	public ResponseEntity<?> get(@PathVariable("id") Long id) {
 		Long result = userService.delete(id);
 		return ResponseEntity.ok(result);
 	}
