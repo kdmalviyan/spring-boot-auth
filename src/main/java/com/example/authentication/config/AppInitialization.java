@@ -22,8 +22,8 @@ public class AppInitialization {
 	private PasswordEncoder passwordEncoder;
 	private RoleRepository roleRepository;
 
-	private static final Map<String, String> initialRoles = ImmutableMap.<String, String>builder().put("ADMIN", "Admin")
-			.put("USER", "user").build();
+	private static final Map<String, String> initialRoles = ImmutableMap.<String, String>builder().put("ROLE_ADMIN", "Admin")
+			.put("ROLE_USER", "user").build();
 
 	public AppInitialization(@Autowired UserRepository userRepository, @Autowired PasswordEncoder passwordEncoder,
 			@Autowired RoleRepository roleRepository) {
@@ -31,8 +31,8 @@ public class AppInitialization {
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
 		initializeRoles();
-		initializeUser("ADMIN", "admin");
-		initializeUser("USER", "user");
+		initializeUser("ROLE_ADMIN", "admin");
+		initializeUser("ROLE_USER", "user");
 	}
 
 	private void initializeRoles() {
